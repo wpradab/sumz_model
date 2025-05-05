@@ -51,7 +51,7 @@ def preprocesar_datos_y_guardar(catalogo_producto, demanda):
     # Guardar las columnas de df_final en un archivo pkl
     columnas_path = os.path.join(models_dir, 'columnas_df_final.pkl')
     with open(columnas_path, 'wb') as f:
-        pickle.dump(df_final.columns.tolist(), f)
+        pickle.dump(df_final.drop(columns=['demanda']).columns.tolist(), f)
 
     # Guardar el diccionario de frequency_encoding
     freqenc_path = os.path.join(models_dir, 'frequency_encoding.pkl')
